@@ -1,0 +1,37 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Dietary Nutrition Guide for Seniors: How to Eat Healthily",
+      "author": "Dr. Zhang",
+      "publishDate": "2025-07-15",
+      "imageUrl": "https://images.pexels.com/photos/3873177/pexels-photo-3873177.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "summary": "As we age, a balanced diet is crucial to maintaining good health. This article introduces several key principles for daily nutrition for seniors...",
+      "content": "<p>As we age, bodily functions change, metabolism slows down, and nutritional needs differ from younger years. Therefore, a balanced diet is essential for maintaining seniors' health and quality of life.</p><p><strong>Key Principle 1: Diverse foods, mainly grains.</strong> Daily meals should include grains and tubers, vegetables and fruits, meat, poultry, fish, eggs, dairy, soy products, and nuts. It is recommended to consume more than 12 different foods daily and over 25 weekly.</p><p><strong>Key Principle 2: Eat more vegetables, fruits, and soy products.</strong> Vegetables and fruits are important sources of vitamins, minerals, and dietary fiber. Soy products are rich in quality protein, calcium, and plant sterols that help cardiovascular health.</p><p>Wishing you pleasant meals and good health!</p>",
+      "totalScore": 125,
+      "ratingCount": 30
+    },
+    {
+      "id": 2,
+      "title": "Stay Active: Five Gentle Exercises for Seniors",
+      "author": "Professor Wang",
+      "publishDate": "2025-07-18",
+      "imageUrl": "https://images.pexels.com/photos/4325453/pexels-photo-4325453.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "summary": "Exercise is key to maintaining physical and mental health. Vigorous activity isn't necessary; gentle exercises can bring great benefits. Explore Tai Chi, walking, swimming, and more...",
+      "content": "<p>\"Life is movement\" applies to seniors as well. Regular physical activity helps improve muscle strength, balance, prevents falls, and benefits mental health. Here are five gentle exercises especially suitable for seniors:</p><ol><li><strong>Walking:</strong> The simplest and safest exercise. A daily 30-minute brisk walk effectively improves cardiovascular health.</li><li><strong>Tai Chi:</strong> Combines slow, flowing movements and deep breathing to greatly enhance balance and flexibility.</li><li><strong>Swimming or Water Walking:</strong> Water buoyancy reduces joint stress, an excellent choice for seniors with arthritis.</li><li><strong>Stationary Biking:</strong> Indoor exercise unaffected by weather, a safe cardiovascular workout.</li><li><strong>Yoga:</strong> Choose gentle yoga classes designed for seniors to relax the body and increase flexibility.</li></ol>",
+      "totalScore": 88,
+      "ratingCount": 20
+    },
+    {
+      "id": 3,
+      "title": "How to Prevent Common Seasonal Flu in Seniors",
+      "author": "Head Nurse Li",
+      "publishDate": "2025-07-22",
+      "imageUrl": "https://images.pexels.com/photos/4031818/pexels-photo-4031818.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "summary": "Seniors are at higher risk for seasonal flu during seasonal changes. Vaccination, hand washing, and good ventilation are effective preventive measures. Learn more practical tips...",
+      "content": "<p>Seniors have relatively weaker immune systems and are susceptible to respiratory illnesses such as seasonal flu. Prevention is vital.</p><ul><li><strong>Get flu vaccination promptly:</strong> The most effective prevention. Recommended before flu season every year.</li><li><strong>Maintain good personal hygiene:</strong> Wash hands frequently with soap and running water or use alcohol-based sanitizer. Avoid touching eyes, nose, and mouth.</li><li><strong>Healthy lifestyle:</strong> Ensure adequate sleep, balanced diet, and moderate exercise to boost immunity.</li><li><strong>Maintain social distancing:</strong> Avoid crowded and poorly ventilated public places during flu season.</li></ul>",
+      "totalScore": 0,
+      "ratingCount": 0
+    }
+  ]
+}
