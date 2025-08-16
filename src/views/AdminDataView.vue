@@ -1,11 +1,15 @@
 <template>
   <div class="container py-5">
-    <h1 class="mb-4">管理员数据面板</h1>
+    <h1 class="mb-4">Admin Data Panel</h1>
 
-    <!-- 第一个表格：用户管理 -->
+    <!-- First table: User Management -->
     <div class="card shadow-sm mb-5">
-      <div class="card-header">
-        <h5 class="mb-0">用户管理</h5>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">User Management</h5>
+        <!-- Clicking the button passes the original, clean usersData constant -->
+        <button class="btn btn-sm btn-outline-success" @click="exportToCSV(usersData, 'users.csv')">
+          <i class="bi bi-download me-2"></i>Export as CSV
+        </button>
       </div>
       <div class="card-body">
         <vue-good-table :columns="userColumns" :rows="users" :pagination-options="{
@@ -13,15 +17,19 @@
           perPage: 10,
         }" :search-options="{
           enabled: true,
-          placeholder: '搜索用户数据...',
+          placeholder: 'Search user data...',
         }" theme="bootstrap" />
       </div>
     </div>
 
-    <!-- 第二个表格：文章管理 -->
+    <!-- Second table: Article Management -->
     <div class="card shadow-sm">
-      <div class="card-header">
-        <h5 class="mb-0">文章管理</h5>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Article Management</h5>
+        <!-- Clicking the button passes the original, clean articlesData constant -->
+        <button class="btn btn-sm btn-outline-success" @click="exportToCSV(articlesData, 'articles.csv')">
+          <i class="bi bi-download me-2"></i>Export as CSV
+        </button>
       </div>
       <div class="card-body">
         <vue-good-table :columns="articleColumns" :rows="articles" :pagination-options="{
@@ -29,7 +37,7 @@
           perPage: 10,
         }" :search-options="{
           enabled: true,
-          placeholder: '搜索文章数据...',
+          placeholder: 'Search article data...',
         }" theme="bootstrap" />
       </div>
     </div>
@@ -38,50 +46,71 @@
 
 <script setup>
 import { ref } from 'vue';
-
-// 导入 Vue Good Table 组件和它的 CSS
-import 'vue-good-table-next/dist/vue-good-table-next.css'
+import 'vue-good-table-next/dist/vue-good-table-next.css';
 import { VueGoodTable } from 'vue-good-table-next';
+import Papa from 'papaparse';
 
-// 导入模拟数据
+// Import mock data (pure, non-reactive arrays)
 import usersData from '../../mock-data/users.json';
 import articlesData from '../../mock-data/articles-admin.json';
 
-// -- 用户表格配置 --
+// -- User table config --
 const users = ref(usersData);
 const userColumns = ref([
-  { label: '姓名', field: 'name' },
-  { label: '邮箱', field: 'email' },
-  { label: '角色', field: 'role' },
+  { label: 'Name', field: 'name' },
+  { label: 'Email', field: 'email' },
+  { label: 'Role', field: 'role' },
   {
-    label: '加入日期',
+    label: 'Join Date',
     field: 'join_date',
     type: 'date',
-    // **MODIFIED: 添加这两个格式定义**
-    dateInputFormat: 'MM/dd/yyyy',  // 假设 Mockaroo 生成的是 月/日/年 格式
-    dateOutputFormat: 'yyyy-MM-dd'    // 我们希望显示为 年-月-日 格式
+    dateInputFormat: 'MM/dd/yyyy',
+    dateOutputFormat: 'yyyy-MM-dd',
   },
 ]);
 
-// -- 文章表格配置 --
+// -- Article table config --
 const articles = ref(articlesData);
 const articleColumns = ref([
-  { label: '标题', field: 'title' },
-  { label: '作者', field: 'author' },
+  { label: 'Title', field: 'title' },
+  { label: 'Author', field: 'author' },
   {
-    label: '发布日期',
+    label: 'Publish Date',
     field: 'publish_date',
     type: 'date',
-    // **MODIFIED: 添加这两个格式定义**
-    dateInputFormat: 'MM/dd/yyyy',  // 假设 Mockaroo 生成的是 月/日/年 格式
-    dateOutputFormat: 'yyyy-MM-dd'    // 我们希望显示为 年-月-日 格式
+    dateInputFormat: 'MM/dd/yyyy',
+    dateOutputFormat: 'yyyy-MM-dd',
   },
-  { label: '评分数', field: 'rating_count', type: 'number' },
+  { label: 'Rating Count', field: 'rating_count', type: 'number' },
 ]);
+
+// -- Export function --
+const exportToCSV = (data, filename) => {
+  if (!data || !Array.isArray(data)) {
+    console.error("Export failed: provided data is invalid or not an array.");
+    return;
+  }
+
+  try {
+    const csv = Papa.unparse(data);
+    const blob = new Blob([`\uFEFF${csv}`], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    if (link.download !== undefined) {
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', filename);
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  } catch (error) {
+    console.error("Error exporting CSV:", error);
+  }
+};
 </script>
 
 <style>
-/* vue-good-table-next 会自带一些样式，我们可以进行微调 */
 .vgt-table {
   font-size: 0.9rem;
 }

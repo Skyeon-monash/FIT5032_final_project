@@ -20,20 +20,23 @@
               <router-link class="nav-link" to="/about">About Us</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/contact">Contact us</router-link>
+              <router-link class="nav-link" to="/contact">Contact Us</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/find-services">Nearby Services</router-link>
             </li>
 
             <!-- If user is logged in -->
             <template v-if="authStore.isLoggedIn">
-              <!-- **ADDED: Only users with admin role can see this link** -->
+              <!-- Only users with admin role can see this link -->
               <li v-if="authStore.isAdmin" class="nav-item dropdown ms-lg-3">
                 <a class="nav-link dropdown-toggle text-danger" href="#" id="adminDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  管理后台
+                  Admin Panel
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="adminDropdown">
-                  <li><router-link class="dropdown-item" to="/admin">仪表盘</router-link></li>
-                  <li><router-link class="dropdown-item" to="/admin/data">数据表格</router-link></li>
+                  <li><router-link class="dropdown-item" to="/admin">Dashboard</router-link></li>
+                  <li><router-link class="dropdown-item" to="/admin/data">Data Table</router-link></li>
                 </ul>
               </li>
 
@@ -73,7 +76,6 @@ const handleLogout = async () => {
 </script>
 
 <style scoped>
-/* ... previous styles remain unchanged ... */
 .router-link-active,
 .router-link-exact-active {
   font-weight: bold;

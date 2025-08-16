@@ -12,6 +12,7 @@ import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
 import AdminDashboard from '../views/AdminDashboard.vue'
 import AdminDataView from '../views/AdminDataView.vue'
+import FindServicesView from '../views/FindServicesView.vue'
 
 const routes = [
   // 默认初始页面为主页
@@ -44,6 +45,12 @@ const routes = [
     name: 'AdminData',
     component: AdminDataView,
     meta: { requiresAuth: true, requiredRole: 'admin' },
+  },
+  {
+    path: '/find-services',
+    name: 'FindServices',
+    component: FindServicesView,
+    meta: { requiresAuth: true },
   },
 ]
 
